@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Table from '../../components/table'
-import Map from '../../components/map'
-import TextFields from '../../components/textField'
-import { School } from '../../types';
+import Table from '../../components/table/Table'
+import Map from '../../components/map/Map'
+import TextFields from '../../components/textField/TextField'
+import { School } from '../../types/Types';
 
 const Index: React.FC = () => {
   const [schools, setSchools] = useState<Array<School>>()

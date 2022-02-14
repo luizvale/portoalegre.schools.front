@@ -2,9 +2,9 @@ import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
-import { FieldSchool, School } from '../../types';
-import { AddressFields } from '../../utils'
-import { getSchoolsListOrderedByDistance } from '../../apicall'
+import { FieldSchool, School } from '../../types/Types';
+import { AddressFields } from '../../utils/Utils'
+import { getSchoolsListOrderedByDistance } from '../../apicall/ApiCall'
 
 export default function Forms(props: any) {
     const [state, setState] = useState<FieldSchool>({} as FieldSchool)
@@ -12,6 +12,7 @@ export default function Forms(props: any) {
 
     const HandleChange = (e: any) => {
         const { name, value } = e.target;
+        console.log(schools, "<<<")
         const newVal = value;
         setState({
             ...state,

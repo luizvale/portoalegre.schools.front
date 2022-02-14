@@ -5,8 +5,8 @@ import ListItemText from '@mui/material/ListItemText';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
 import Button from '@mui/material/Button';
 import { useEffect } from 'react';
-import { getRouteBetweenTwoSchools, getSchoolsList } from '../../apicall'
-import { School } from '../../types';
+import { getRouteBetweenTwoSchools, getSchoolsList } from '../../apicall/ApiCall'
+import { School } from '../../types/Types';
 
 function renderRow(props: ListChildComponentProps) {
   const { index, style, data } = props;
@@ -21,7 +21,6 @@ function renderRow(props: ListChildComponentProps) {
     }
     const originCoordinates: Array<number> = [school.latitude, school.longitude]
     const destinyCoordinates: Array<number> = [schoolDestiny.latitude, schoolDestiny.longitude]
-    console.log({Origin: originCoordinates, Destiny: destinyCoordinates })
     getRouteBetweenTwoSchools({Origin: originCoordinates, Destiny: destinyCoordinates })
     .then((response: any) => response.json())
     .then((data: any) => console.log(data));
