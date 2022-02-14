@@ -3,16 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/core": "^4.12.3",
+    "@mui/material": "^5.4.1",
+    "@mui/x-data-grid": "^5.5.1",
+    "@mui/x-data-grid-generator": "^5.5.1",
+    "@mui/x-data-grid-pro": "^5.5.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.24",
     "@types/react": "^17.0.39",
+    "@types/react-data-grid": "^4.0.8",
     "@types/react-dom": "^17.0.11",
+    "azure-maps-control": "^2.1.8",
+    "bingmaps-react": "^1.2.10",
     "react": "^17.0.2",
+    "react-azure-maps": "^0.3.0",
+    "react-bingmaps": "^3.6.1",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "react-window": "^1.8.6",
     "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
   },
@@ -39,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-window": "^1.8.5"
   }
 }
