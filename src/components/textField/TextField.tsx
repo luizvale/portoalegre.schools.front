@@ -12,7 +12,6 @@ export default function Forms(props: any) {
 
     const HandleChange = (e: any) => {
         const { name, value } = e.target;
-        console.log(schools, "<<<")
         const newVal = value;
         setState({
             ...state,
@@ -22,24 +21,30 @@ export default function Forms(props: any) {
 
     const ReorderListBySearchAddress = () => {
         const { Nome, Bairro, Numero, Cep } = state
-        let schoolSearched: Array<School> = schools.filter((s: School) => (
-            s.nome == Nome &&
-            s.bairro == Bairro &&
-            s.cep == Cep &&
-            s.numero == Numero
-        ))
-        let schoolFormatted: FieldSchool = schoolSearched.map((s: School) => {
-            return {
-                Nome: s.nome,
-                Bairro: s.bairro,
-                Numero: s.numero,
-                Cep: s.cep
-            }
-        })[0]
-        setSchoolSearched(schoolSearched[0])
-        getSchoolsListOrderedByDistance(schoolFormatted)
-            .then((response: any) => response.json())
-            .then((data: any) => setSchools(data));
+        if(Nome && Bairro && Numero && Cep)
+        {
+            let schoolSearched: Array<School> = schools.filter((s: School) => (
+                s.nome == Nome &&
+                s.bairro == Bairro &&
+                s.cep == Cep &&
+                s.numero == Numero
+            ))
+            let schoolFormatted: FieldSchool = schoolSearched.map((s: School) => {
+                return {
+                    Nome: s.nome,
+                    Bairro: s.bairro,
+                    Numero: s.numero,
+                    Cep: s.cep
+                }
+            })[0]
+            setSchoolSearched(schoolSearched[0])
+            getSchoolsListOrderedByDistance(schoolFormatted)
+                .then((response: any) => response.json())
+                .then((data: any) => setSchools(data));
+        }
+        else {
+            window.alert("Um endereço presente na lista de escolas deve ser digitado !")
+        }
     }
 
     return (

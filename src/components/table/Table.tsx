@@ -12,7 +12,7 @@ function renderRow(props: ListChildComponentProps) {
   const { index, style, data } = props;
   const { schools, schoolSearched, setItinerary } = data
 
-  const originCoordinates = (index: number) => {
+  const CreateItineraryPoints = (index: number) => {
     let school: School = schools.find((s: School, i: number) => index == i)
     let schoolDestiny: School = schoolSearched
     if(!schoolDestiny)
@@ -23,7 +23,7 @@ function renderRow(props: ListChildComponentProps) {
     const destinyCoordinates: Array<number> = [schoolDestiny.latitude, schoolDestiny.longitude]
     getRouteBetweenTwoSchools({Origin: originCoordinates, Destiny: destinyCoordinates })
     .then((response: any) => response.json())
-    .then((data: any) => console.log(data));
+    .then((data: any) => setItinerary(data));
   }
 
   return (
@@ -32,7 +32,7 @@ function renderRow(props: ListChildComponentProps) {
         <ListItemText primary={schools[index].nome} />
       </ListItemButton>
       <Button 
-        onClick={() => originCoordinates(index)}
+        onClick={() => CreateItineraryPoints(index)}
         variant="contained">
           Ver Rota
       </Button>
@@ -41,7 +41,7 @@ function renderRow(props: ListChildComponentProps) {
 }
 
 export default function List(props: any) {
-  const { setSchools, schools, schoolSearched } = props
+  const { setSchools, schools, schoolSearched, setItinerary } = props
 
   useEffect(() => {
     let isActive = true;
@@ -65,7 +65,7 @@ export default function List(props: any) {
         itemSize={50}
         itemCount={schools!.length}
         overscanCount={5}
-        itemData={{ schools, schoolSearched }}
+        itemData={{ schools, schoolSearched, setItinerary }}
       >
         {renderRow}
       </FixedSizeList>}
