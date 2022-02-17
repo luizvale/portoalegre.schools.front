@@ -64,7 +64,7 @@ export default function Forms(props: any) {
                     onChange={HandleChange}
                 />
             ))}
-            <Button onClick={ReorderListBySearchAddress} variant="text">Buscar</Button>
+            <Button onClick={ReorderListBySearchAddress} variant="text">Ordenar por distancia</Button>
         </Box>
     );
 }
