@@ -1,4 +1,4 @@
-import Index from './pages/index/Index'
+import Index from './pages/index/MainPage'
 
 function App() {
   return <Index/>
